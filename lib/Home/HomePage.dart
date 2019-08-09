@@ -41,16 +41,17 @@ class HomeState extends State <HomePage> {
 
   Widget listItem(BuildContext context, int index) {
 //    NewModel aNew = newsModel[index];
-    return Row (
+
+  Widget titleImageSection = new Container(
+    padding:EdgeInsets.fromLTRB(15, 10, 10, 5),
+    child: Row(
       mainAxisAlignment:MainAxisAlignment.spaceAround,
       children: <Widget>[
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,///决定children的对齐方式
-          children: <Widget>[
-            Container(
-              width: width - imageWidth -15,
-              padding:EdgeInsets.fromLTRB(15, 10, 10, 5),
-              child:Text("这个是新闻的主标题，可以有两行排列，或一行，但是最多只能有两行，不能再多了",
+        Expanded(///Expanded会拉伸该列以使用该行中的所有剩余空闲空间
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text("这个是新闻的主标题，可以有两行排列，或一行，但是最多只能有两行，不能再多了",
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 softWrap:true,
@@ -62,12 +63,8 @@ class HomeState extends State <HomePage> {
                   fontSize: 24,
                   fontWeight:FontWeight.bold ,
                 ),
-              ) ,
-            ),
-            Container(
-//              color: Colors.green,
-              padding:EdgeInsets.fromLTRB(15, 5, 10, 5),
-              child: Text("信息来源自",
+              ),
+              Text("信息来源自",
                 textAlign: TextAlign.left,
                 maxLines: 1,
                 style: TextStyle(
@@ -75,17 +72,15 @@ class HomeState extends State <HomePage> {
                   color: Colors.grey[400],
                 ),
               ),
-            ),
-          ],
-
+            ],
+          ),
         ),
-        Container(
-          padding: EdgeInsets.only(right: 15),
-            child: new Image.asset("resource/images/avatar.png",width: 60,height: 80,),
-        ),
+        new Image.asset("resource/images/avatar.png",width: 80,height: 80,),
       ],
-    );
+    ),
+  );
 
+  return titleImageSection;
     return ListTile(title: Text("365Nwes"), subtitle: Text("body in ${index}"),);
   }
 
