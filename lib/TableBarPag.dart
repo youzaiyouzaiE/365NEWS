@@ -18,13 +18,24 @@ class TabBarState extends State <TableBarPage> {
   int _selectedItem = 0;
   List<Widget> pages = List<Widget>();
 
+  final pageController = PageController();
+
   @override
   Widget build(BuildContext context) {
     initPages();
     return Scaffold(
-      body: IndexedStack(
-        index: _selectedItem,
-        children:pages,
+//      body: IndexedStack(
+//        index: _selectedItem,
+//        children:pages,
+//      ),
+      body: PageView(
+        children: pages,
+        controller: pageController,
+        onPageChanged: (int index){
+          setState(() {
+            _selectedItem = index%3;
+          });
+        },
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
@@ -35,10 +46,11 @@ class TabBarState extends State <TableBarPage> {
         ],
         currentIndex: _selectedItem,
         onTap:(int index){
-          setState(() {
-            _selectedItem = index;
-          });
-
+//          setState(() {
+//            _selectedItem = index;
+//          }
+//          );
+          pageController.jumpToPage(index);
         },
       ),
     );
