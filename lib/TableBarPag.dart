@@ -12,6 +12,8 @@ class TableBarPage extends StatefulWidget {
   }
 }
 
+
+//// TabBarView
 class TabBarState extends State <TableBarPage> {
   int _selectedItem = 0;
   List<Widget> pages = List<Widget>();
@@ -20,9 +22,12 @@ class TabBarState extends State <TableBarPage> {
   Widget build(BuildContext context) {
     initPages();
     return Scaffold(
-      body: pages[_selectedItem],
+      body: IndexedStack(
+        index: _selectedItem,
+        children:pages,
+      ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
         items: [
           _getBottomNavBarItem(Icons.home, "首页", _barColor(0,context)),
           _getBottomNavBarItem(Icons.video_library, "视频", _barColor(1,context)),
