@@ -8,7 +8,7 @@ class HomePage extends StatefulWidget {
 }
 
 
-class HomeState extends State <HomePage> with AutomaticKeepAliveClientMixin{
+class HomeState extends State <HomePage> with AutomaticKeepAliveClientMixin {
 
   List<NewModel> newsModel = List<NewModel> ();
   ScrollController _controller = ScrollController();
@@ -30,12 +30,6 @@ class HomeState extends State <HomePage> with AutomaticKeepAliveClientMixin{
     }) ;
 //    dleRefresh();
   }
-
-//  dleRefresh() async {
-//      setState(() {
-//        _controller.animateTo(_listViewOffset, duration: null, curve:Curves.ease);
-//      });
-//  }
 
   @override
   void dispose() {
@@ -118,7 +112,7 @@ class HomeState extends State <HomePage> with AutomaticKeepAliveClientMixin{
         ),
       Container (
         padding: EdgeInsets.only(left: 5),
-        child:new Image.asset("resource/images/avatar.png",width: 80,height: 80,),
+        child:new Image.asset("resource/images/wuyanzu.png",width: 80,height: 80,),
       )
       ],
     ),

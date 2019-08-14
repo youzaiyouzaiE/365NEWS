@@ -18,14 +18,24 @@ class MineState extends State <MinePage> {
       appBar: AppBar(
         title: Text("我的",),
       ),
-      body: CustomScrollView(
+      body: CustomScrollView (
         slivers: <Widget>[
-          SliverAppBar(
-            title: Text("Sliver App Bar"),
-            floating: true,
-            flexibleSpace: Image.asset("resource/images/lake.jpg",fit: BoxFit.cover,),
-            expandedHeight: 300,
+        SliverToBoxAdapter(
+          child:Stack(
+            alignment: Alignment(0,-0.8),
+            children: <Widget>[
+              Image.asset("resource/images/lake.jpg",
+                fit: BoxFit.cover,
+//                height: 300,
+               ),
+              CircleAvatar(
+                backgroundImage:AssetImage('resource/images/yuanyuan.png'
+                ),
+                radius: 70.0,
+              ),
+            ],
           ),
+        ),
           SliverList(
             delegate:SliverChildBuilderDelegate(
               (BuildContext context, int index) {
@@ -34,6 +44,7 @@ class MineState extends State <MinePage> {
               childCount: 10,
             ),
           ),
+
         ],
       ),
     );
