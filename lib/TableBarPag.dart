@@ -24,10 +24,23 @@ class TabBarState extends State <TableBarPage> {
   Widget build(BuildContext context) {
     initPages();
     return Scaffold(
-      body: IndexedStack(
-        index: _selectedItem,
-        children:pages,
-      ),
+        body: PageView (
+          children: pages,
+          controller: pageController,
+          onPageChanged: (int index){
+            setState(() {
+              _selectedItem = index%3;
+            });
+          },
+        ),
+
+//      body:pages[_selectedItem],
+
+//      body:IndexedStack(
+//        index: _selectedItem,
+//        children:pages,
+//      ),
+
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         items: [
@@ -37,10 +50,12 @@ class TabBarState extends State <TableBarPage> {
         ],
         currentIndex: _selectedItem,
         onTap:(int index){
-          setState(() {
-            _selectedItem = index;
-          }
-          );
+//          setState(() {
+//            _selectedItem = index;
+//          }
+//          );
+
+          pageController.jumpToPage(index);
         },
       ),
     );

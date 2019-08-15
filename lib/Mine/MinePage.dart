@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:t_s_f_news/Mine/ProfilePage.dart';
 
 
-
-class MinePage extends StatefulWidget {
+class MinePage extends StatefulWidget  {
 
   @override
   State<StatefulWidget> createState() {
@@ -10,11 +10,33 @@ class MinePage extends StatefulWidget {
   }
 }
 
-class MineState extends State <MinePage> {
+class MineState extends State <MinePage>  with AutomaticKeepAliveClientMixin
+{
 
+  @override
+  bool get wantKeepAlive => true;
+
+  @override
+  void initState() {
+    super.initState();
+    print("MineState 11111111 initState !");
+  }
+
+  @override
+  void didUpdateWidget(MinePage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    print(" MineState 111111111  did Update Mine Page Widget!");
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    print("MineState 1111111111 did Change Dependencies Call!");
+  }
 
   @override
   Widget build(BuildContext context) {
+    print("MineState 111111111 build call!");
     return Scaffold (
       appBar: AppBar(
         title: Text("我的",),
@@ -70,11 +92,26 @@ class MineState extends State <MinePage> {
       ),
     );
   }
-  
+
+  ///Button action
   void _buttonOnPressed() {
-    print("Profile Tiped !");
+//    print("Profile Tiped !");
+    ProfilePage page = ProfilePage();
+    Navigator.push(context, new MaterialPageRoute(builder: (context)=> page));
   }
-  
-  
-  
+
+  @override
+  void deactivate() {
+    print("MineState 11111111 deactivate !");
+    super.deactivate();
+
+  }
+
+  @override
+  void dispose() {
+    print("MineState 1111111111 dispose!");
+    super.dispose();
+
+  }
+
 }

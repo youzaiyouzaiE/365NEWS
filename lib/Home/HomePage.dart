@@ -23,7 +23,6 @@ class HomeState extends State <HomePage> with AutomaticKeepAliveClientMixin {
   @override
   void initState() {
     super.initState();
-    print('1111111111    HomeState initState');
     _controller.addListener(() {
       _listViewOffset = _controller.offset;
       print("_listViewOffset = $_listViewOffset");
@@ -31,11 +30,6 @@ class HomeState extends State <HomePage> with AutomaticKeepAliveClientMixin {
 //    dleRefresh();
   }
 
-  @override
-  void dispose() {
-    print('eeeeeeeeeee  HomeState dispose');
-    super.dispose();
-  }
 
   @override
   bool get wantKeepAlive => true;
