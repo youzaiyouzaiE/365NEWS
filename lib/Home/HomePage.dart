@@ -74,7 +74,7 @@ class HomeState extends State <HomePage> with AutomaticKeepAliveClientMixin {
 //    NewModel aNew = newsModel[index];
 
   Widget titleImageSection = new Container(
-    color: Colors.yellow,
+//    color: Colors.yellow,
     padding:EdgeInsets.fromLTRB(15, 10, 10, 5),
     child: Row(
       mainAxisAlignment:MainAxisAlignment.spaceAround,
@@ -120,7 +120,7 @@ class HomeState extends State <HomePage> with AutomaticKeepAliveClientMixin {
 
 
   Widget contentButton = FlatButton(
-    color: Colors.blue,
+//    color: Colors.blue,
     child: titleImageSection,
     onPressed: () {
       print("taped Item is :$index");
