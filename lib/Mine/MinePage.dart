@@ -95,13 +95,19 @@ class MineState extends State <MinePage>  with AutomaticKeepAliveClientMixin
 
   ///Button action
   void _buttonOnPressed() {
-//    print("Profile Tiped !");
+//    print("Profile Taped !");
     ProfilePage page = ProfilePage();
     Navigator.push(context, new MaterialPageRoute(builder: (context)=> page));
   }
 
   @override
   void deactivate() {
+    String string  = "123";
+    num number = 1;
+    bool isRight = true;
+    List <int>  intArr = [1,2,3];
+
+
     print("MineState 11111111 deactivate !");
     super.deactivate();
 
